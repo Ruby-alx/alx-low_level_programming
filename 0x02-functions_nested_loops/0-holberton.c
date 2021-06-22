@@ -1,4 +1,3 @@
-
 #include "holberton.h"
 /**
  * main - entry point
@@ -7,12 +6,12 @@
  */
 int main(void)
 {
-  char *ch = "Holberton\n";
+char *ch = "Holberton\n";
 
-  while (*ch)
-    {
-      _putchar(*ch++);
-    }
+while (*ch)
+{
+_putchar(*ch++);
+}
 
-  return (0);
+return (0);
 }
