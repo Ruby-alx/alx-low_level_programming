@@ -1,15 +1,18 @@
+
 #include "holberton.h"
 /**
- * main - print the word "Holberton"
+ * main - entry point
+ * dsiplaying a msg
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-char *ch = "Holberton\n";
-while (*ch)
-{
-_putchar(*ch++);
+  char *ch = "Holberton\n";
+
+  while (*ch)
+    {
+      _putchar(*ch++);
+    }
+
+  return (0);
 }
-return (0);
-}
-p
