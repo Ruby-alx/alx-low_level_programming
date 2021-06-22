@@ -5,13 +5,11 @@
  */
 int main(void)
 {
-  char *ch = "Holberton\n";
-
-  while (*ch)
-    {
-      _putchar(*ch++);
-    }
-
-  return (0);
+char *ch = "Holberton\n";
+while (*ch)
+{
+_putchar(*ch++);
 }
-
+return (0);
+}
+p
