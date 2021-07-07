@@ -3,8 +3,6 @@
 /**
  * _puts_recursion - print a string
  * @s: input string
- *
- * Description: prints a string, followed by a new line
  * Return: always 0
 */
 
