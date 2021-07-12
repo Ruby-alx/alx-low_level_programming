@@ -5,19 +5,19 @@
  * main - multiplies two arguments
  * @argc: The argument count
  * @argv: The argument vector
- * Return: Always zero
+ * Return: 0 if no errors, else 1
 */
 int main(int argc, char *argv[])
 {
-int total, i, j;
-if (argc == 3)
+int a, b, c;
+if (argc != 3)
 {
-i = atoi(argv[1]);
-j = atoi(argv[2]);
-total = i * j;
-printf("%d\n", total);
-return (0);
-}
-printf("Error\n");
+puts("Error");
 return (1);
+}
+a = atoi(argv[1]);
+b = atoi(argv[2]);
+c = a * b;
+printf("%d\n", c);
+return (0);
 }
