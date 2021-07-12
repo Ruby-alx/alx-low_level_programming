@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 
 /**
- * main - multiplies two arguments
- * @argc: The argument count
- * @argv: The argument vector
- * Return: 0 if no errors, else 1
+ * main - print product of argument numbers
+ * @argc: argument counter
+ * @argv: numbers to multiply
+ * Return: 0 on success, 1 if two arguments not given
 */
+
 int main(int argc, char *argv[])
 {
-int a, b, c;
+/* validate input */
 if (argc != 3)
 {
-puts("Error");
+printf("Error\n");
 return (1);
 }
-a = atoi(argv[1]);
-b = atoi(argv[2]);
-c = a * b;
-printf("%d\n", c);
+/* mulitply two arguments passed via cmd line */
+printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
 return (0);
 }
