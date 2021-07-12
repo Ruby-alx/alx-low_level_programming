@@ -1,3 +1,4 @@
+#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,17 +8,24 @@
  * @argv: The argument vector
  * Return: Always zero
 */
+int main(int argc, char *argv[]
+{
 int main(int argc, char *argv[])
 {
-int total, i, j;
-if (argc == 3)
+int res;
+int a;
+int b;
+if (argc < 2)
 {
-i = atoi(argv[1]);
-j = atoi(argv[2]);
-total = i * j;
-printf("%d\n", total);
-return (0);
-}
 printf("Error\n");
 return (1);
+}
+else
+{
+a = atoi(argv[1]);
+b = atoi(argv[2]);
+res = a * b;
+printf("%d\n", res);
+}
+return (0);
 }
