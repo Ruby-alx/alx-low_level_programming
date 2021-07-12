@@ -5,30 +5,49 @@
  * main - print the minimum number of coins to make change
  * @argc: number of arguments
  * @argv: array of pointers to string arguments
- *
- * Return: always 0 for success
+ * Return: 1 on error 0 on success
 */
 int main(int argc, char *argv[])
 {
-int i, n, s, ch = 0;
-int c[] = {25, 10, 5, 2, 1};
-if (argc != 2)
+int main(int argc, char *argv[])
+{int cents, coins = 0;
+if (argc == 2)
+{
+cents = atoi(*(argv + 1));
+while (cents > 0)
+{
+if (cents % 25 < cents)
+{
+cents -= 25;
+coins++;
+}
+else if (cents % 10 < cents)
+{
+cents -= 10;
+coins++;
+}
+else if (cents % 5 < cents)
+{
+cents -= 5;
+coins++;
+}
+else if (cents % 2 < cents)
+{
+cents -= 2;
+coins++;
+}
+else if (cents % 1 < cents)
+{
+cents -= 1;
+coins++;
+}
+}
+}
+else
 {
 printf("Error\n");
 return (1);
 }
-s = atoi(argv[1]);
-if (s < 1)
-printf("0\n");
-else
-{
-for (i = 0; i < 5 && s; i++)
-{
-n = s / c[i];
-ch += n;
-s -= n * c[i];
-}
-printf("%d\n", ch);
-}
+printf("%d\n", coins);
 return (0);
 }
