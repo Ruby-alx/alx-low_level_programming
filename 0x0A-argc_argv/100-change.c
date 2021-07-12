@@ -9,45 +9,18 @@
 */
 int main(int argc, char *argv[])
 {
-int main(int argc, char *argv[])
-{int cents, coins = 0;
-if (argc == 2)
+int i, n, c = 0, COINS[] = {25, 10, 5, 2, 1};
+if (argc != 2)
+return (printf("Error\n"), 1);
+n = atoi(argv[1]);
+if (n < 0)
+return (puts("0"), 1);
+for (i = 0; i < 5; i++)
+if (n / COINS[i])
 {
-cents = atoi(*(argv + 1));
-while (cents > 0)
-{
-if (cents % 25 < cents)
-{
-cents -= 25;
-coins++;
+c += n / COINS[i];
+n %= COINS[i];
 }
-else if (cents % 10 < cents)
-{
-cents -= 10;
-coins++;
-}
-else if (cents % 5 < cents)
-{
-cents -= 5;
-coins++;
-}
-else if (cents % 2 < cents)
-{
-cents -= 2;
-coins++;
-}
-else if (cents % 1 < cents)
-{
-cents -= 1;
-coins++;
-}
-}
-}
-else
-{
-printf("Error\n");
-return (1);
-}
-printf("%d\n", coins);
+printf("%d\n", c);
 return (0);
 }
