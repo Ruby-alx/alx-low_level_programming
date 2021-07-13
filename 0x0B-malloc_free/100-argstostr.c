@@ -1,88 +1,55 @@
 #include "holberton.h"
-
-char *_strcat(char *dest, char *src);
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
  * argstostr - concatenates all the arguments
- * @av: the content
- * @ac: the size of the content
+ * @ac: input params
+ * @av: input params
  *
- * Return: a pointer to a new string
+ * Return: nothing.
 */
 
 char *argstostr(int ac, char **av)
 {
-char *new, *salt;
-int i, j, k;
+int x, j, v = 0;
+int len = 1;
+char *str;
 
 if (ac == 0 || av == NULL)
 {
 return (NULL);
 }
+
+for (x = 0; x < ac; x++)
+{
+for (j = 0; av[x][j] != '\0'; j++)
+{
+len += 1;
+}
+len += 1;
+}
+str = malloc(sizeof(char) * len);
+
+for (x = 0; x < ac; x++)
+{
+for (j = 0; av[x][j] != '\0'; j++)
+{
+str[v] = av[x][j];
+v++;
+}
+str[v] = '\n';
+v++;
+}
+str[v] = '\0';
+
+if (str != NULL)
+{
+return (str);
+}
 else
 {
-for (i = 0, k = 0 ; i < ac ; i++, k++)
-{
-for (j = 0 ; av[i][j] != '\0' ; j++, k++)
-{
-;
-}
-}
-new = malloc(sizeof(char) * (k + 1));
-salt = "\n";
-for (i = 0 ; i < ac ; i++)
-{
-new = _strcat(new, av[i]);
-if (new == NULL)
-{
 return (NULL);
 }
-if (i + 1 < ac)
-{
-new = _strcat(new, salt);
-if (new == NULL)
-{
-return (NULL);
-}
-}
-}
-
-}
-new = _strcat(new, salt);
-if (new == NULL)
-{
-return (NULL);
-}
-return (new);
-}
-
-/**
- * _strcat - concatenates two strings
- * @dest: input parameter string
- * @src: input parameter string
- *
- * Return: dest
-*/
-
-char *_strcat(char *dest, char *src)
-{
-int a;
-int b;
-
-a = 0;
-
-while (dest[a] != 0)
-{
-a++;
-}
-
-b = 0;
-
-while (src[b] != 0)
-{
-dest[a] = src[b];
-a++;
-b++;
-}
-return (dest);
 }
