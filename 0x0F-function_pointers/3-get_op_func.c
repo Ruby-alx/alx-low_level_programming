@@ -1,14 +1,15 @@
 #include "3-calc.h"
+#include <string.h>
 
 /**
- * get_op_func - select correct function for exe
- * @s: input params
+ * get_op_func - selects the correct operation toperform
+ * @s: operation to perform
  *
- * Return: 0 for code succes
+ * Return: pointer to the correct function
 */
-
 int (*get_op_func(char *s))(int, int)
-{op_t ops[] = {
+{
+op_t ops[] = {
 {"+", op_add},
 {"-", op_sub},
 {"*", op_mul},
@@ -17,9 +18,9 @@ int (*get_op_func(char *s))(int, int)
 {NULL, NULL}
 };
 int i = 0;
-while (i < 5)
+while (ops[i].op != NULL)
 {
-if (!strcmp(ops[i].op, s))
+if (strcmp(s, ops[i].op) == 0)
 {
 return (ops[i].f);
 }
